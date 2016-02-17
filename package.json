@@ -1,0 +1,22 @@
+{
+  "name": "not-explorer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baileyisms/Not-Explorer.git"
+  },
+  "author": "John Bailey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baileyisms/Not-Explorer/issues"
+  },
+  "homepage": "https://github.com/baileyisms/Not-Explorer#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.7"
+  }
+}
