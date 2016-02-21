@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
-</html>
+<html ng-app="main">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hello World!</title>
+	</head>
+	<body ng-controller="MainController">
+		<h1>Hello World!</h1>
+
+		<input ng-model="inputModel"></input>
+
+		{{ inputModel }}
+
+		<script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="./folder/app.js"></script>
+		<script type="text/javascript" src="./folder/window.js"></script>
+	</body>
+</html>	
