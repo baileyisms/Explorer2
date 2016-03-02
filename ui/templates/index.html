@@ -9,10 +9,11 @@
 
 		<input ng-model="inputModel"></input>
 
-		{{ inputModel }}
+		<span ng-bind="inputModel"></span>
 
 		<script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
-		<script type="text/javascript" src="./ui/app.js"></script>
-		<script type="text/javascript" src="./ui/window.js"></script>
+{{#each assets.js }}
+		<script src="{{ this }}"></script>
+{{/each}}
 	</body>
 </html>	
