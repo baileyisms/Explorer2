@@ -3,13 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Hello World!</title>
+
+		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css">
+{{#each assets.css}}
+		<link rel="stylesheet" href="{{ this }}">
+{{/each}}
 	</head>
 	<body ng-controller="MainController">
 		<h1>Hello World!</h1>
 
 		<input ng-model="inputModel"></input>
 
-		<span ng-bind="inputModel"></span>
+		<i class="fa fa-check"></i><span ng-bind="inputModel"></span>
 
 		<script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
 {{#each assets.js }}
