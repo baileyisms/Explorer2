@@ -2,7 +2,7 @@
 <html ng-app="main">
 	<head>
 		<meta charset="UTF-8">
-		<title>Hello World!</title>
+		<title>Not-Explorer</title>
 
 		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css">
@@ -10,12 +10,8 @@
 		<link rel="stylesheet" href="{{ this }}">
 {{/each}}
 	</head>
-	<body ng-controller="MainController">
-		<h1>Hello World!</h1>
-
-		<input ng-model="inputModel"></input>
-
-		<i class="fa fa-check"></i><span ng-bind="inputModel"></span>
+	<body>
+		<ng-include src="'./ui/src/window.html'"></ng-include>
 
 		<script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
 {{#each assets.js }}

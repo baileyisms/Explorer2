@@ -8,8 +8,12 @@
 
 	function MainController()
 	{
+		var vm = this;
+		vm.itemList = [];
 
-
-		console.log("window2")
+		for (var i = 0; i < 200; i++)
+		{
+			vm.itemList.push("Apple" + i);
+		}
 	}
 })()

@@ -1,4 +1,5 @@
 [
+	"styles/app.css",
 	"app.js",
-	"window.js"
+	"src/window.js"
 ]

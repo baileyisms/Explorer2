@@ -1,0 +1,12 @@
+.example
+{
+	-webkit-columns: 10 200px;
+	-moz-columns: 10 200px;
+	columns: 10 200px;
+	height: 400px;
+}
+.item
+{
+	height: 2em;
+	background-color: #666;
+}
