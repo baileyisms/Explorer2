@@ -15,5 +15,9 @@
 		{
 			vm.itemList.push("Apple" + i);
 		}
+
+		var path = require("path");
+		var data = require(path.join(__dirname, "./data/index.js"));
+		data.getFolderContents(__dirname);
 	}
 })()
