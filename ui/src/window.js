@@ -18,6 +18,9 @@
 
 		var path = require("path");
 		var data = require(path.join(__dirname, "./data/index.js"));
-		data.getFolderContents(__dirname);
+		data.getFolderContents(__dirname).then(function(contents)
+		{
+			console.log(contents);
+		})
 	}
 })()

@@ -3,19 +3,23 @@
 var fs = require("fs");
 var path = require("path");
 
-// Might consider exporting a method that doesn't take a directory. 
-// Keeping track of the current directory might be a responsibility best owned by the data layer.
+module.exports = {
+	getFolderContents: getFolderContents,
+	getMetadata: getMetadata,
+};
+
 function getFolderContents(directory)
 {
-	fs.readdir(directory, function(err, files)
+	return new Promise(function(resolve, reject)
 	{
-		if (err)
+		fs.readdir(directory, function(err, files)
 		{
-			console.error(err);
-			return null;
-		}
-		else
-		{
+			if (err)
+			{
+				reject(err);
+				return;
+			}
+
 			var folder = {
 				files: [],
 				folders: []
@@ -24,26 +28,74 @@ function getFolderContents(directory)
 			{
 				fs.stat(path.join(directory, file), function(err, stats)
 				{
+					if (err)
+					{
+						reject(err);
+						return;
+					}
+
 					if (stats.isDirectory())
 					{
-						folder.folders.push({
-							path: path.join(directory, file),
-							isFolder: true
-						});
+						folder.folders.push(path.join(directory, file));
 					}
 					if (stats.isFile())
 					{
-						folder.files.push({
-							path: path.join(directory, file),
-							isFolder: false
-						});
+						folder.files.push(path.join(directory, file));
 					}
 				});
 			});
 
-			return folder;
-		}
-	});
+			resolve(folder);
+		});
+	})
 }
 
-exports.getFolderContents = getFolderContents;
+function getFolderContentsWithFilter(directory, filter)
+{
+	return new Promise(resolve, reject)
+	{
+		// filter is an object with terms
+		// tag1 AND tag2 AND (tag3 OR tag4)
+		var exampleFilter = {
+			_operator: "AND",
+			terms: [
+				"tag1", 
+				"tag2",
+				{
+					_operator: "OR",
+					terms: [
+						"tag3",
+						"tag4"
+					]
+				}
+			]
+		}
+
+		var whereClause = makeWhereClauseFromFilter(filter)
+
+		// Make SQL query and call DB
+		// Consider using an ORM?
+
+
+		// Build folder, having list of file paths, from returned records
+		var folder = {
+			files: []
+		};
+		resolve(folder);
+	};
+}
+
+function getMetadata(filePath)
+{
+	return new Promise(resolve, reject)
+	{
+		// Do something actual, but for now, just resolve with fake data
+		resolve({});
+	}
+}
+
+function makeWhereClauseFromFilter(filter)
+{
+	// An ORM might make this function unnecessary
+	return "";
+}
