@@ -36,3 +36,4 @@ jspm_packages
 config.json
 index.html
 /release
+/db
